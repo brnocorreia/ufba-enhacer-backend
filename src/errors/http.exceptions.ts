@@ -17,3 +17,12 @@ export class DepartmentNotFound extends HttpException {
     );
   }
 }
+
+export class NameNotFound extends HttpException {
+  constructor(name: string) {
+    super(
+      `Unable to find a discipline with name: ${name}. Try a different one.`,
+      HttpStatus.NOT_FOUND,
+    );
+  }
+}

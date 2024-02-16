@@ -13,11 +13,16 @@ Content-Type: application/json
 }
 
 ###
-// Buscar uma discipline de acordo com seu código
+// Buscar uma disciplina de acordo com seu código
 GET http://localhost:3000/disciplines/ADM203/details
 Content-Type: application/json
 
 ###
 // Busca a lista de disciplinas de determinado departamento
-GET http://localhost:3000/disciplines/departments?dept=Filosofia
+GET http://localhost:3000/disciplines/departments?dept=Ci%C3%AAncia%20e%20Tecnologia%20dos%20Materiais
+Content-Type: application/json
+
+###
+// Busca a lista de disciplinas com determinado nome
+GET http://localhost:3000/disciplines?name=arquitetura
 Content-Type: application/json

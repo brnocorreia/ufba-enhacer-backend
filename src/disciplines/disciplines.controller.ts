@@ -26,6 +26,15 @@ export class DisciplinesController {
   getDisciplinesByDept(
     @Query('dept') department: string,
   ): Promise<ResponseDisciplineDTO[]> {
-    return this.disciplinesService.getDisciplinesByDept(department);
+    return this.disciplinesService.getDisciplinesByDept(
+      this.decodeQueryParam(department),
+    );
+  }
+
+  @Get()
+  getDisciplinesByName(
+    @Query('name') name: string,
+  ): Promise<ResponseDisciplineDTO[]> {
+    return this.disciplinesService.getDisciplinesByName(name);
   }
 }

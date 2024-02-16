@@ -8,6 +8,7 @@ import { Discipline } from '@prisma/client';
 import {
   DepartmentNotFound,
   DisciplineNotFound,
+  NameNotFound,
 } from 'src/errors/http.exceptions';
 
 @Injectable()
@@ -57,6 +58,33 @@ export class DisciplinesService {
 
     return disciplines.length === 0
       ? Promise.reject(new DepartmentNotFound(department))
+      : disciplines;
+  }
+
+  async getDisciplinesByName(name: string): Promise<ResponseDisciplineDTO[]> {
+    const disciplines = await this.prismaService.discipline.findMany({
+      where: {
+        name: {
+          contains: name,
+          mode: 'insensitive',
+        },
+      },
+      orderBy: {
+        name: 'asc',
+      },
+      select: {
+        code: true,
+        name: true,
+        workload: true,
+        department: true,
+        program: true,
+        objective: true,
+        content: true,
+        bibliography: true,
+      },
+    });
+    return disciplines.length === 0
+      ? Promise.reject(new NameNotFound(name))
       : disciplines;
   }
 }
