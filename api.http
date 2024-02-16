@@ -1,0 +1,23 @@
+POST http://localhost:3000/disciplines
+Content-Type: application/json
+
+{
+    "code": "ABC123ad",
+    "name": "Básico I",
+    "workload": 60,
+    "department": "Departamento de Computação",
+    "program": "Não há programa cadastrado",
+    "objective": "Não há objetivo cadastrado",
+    "content": "Não há conteúdo cadastrado",
+    "bibliography": "Não há bibliografia cadastrada"
+}
+
+###
+// Buscar uma discipline de acordo com seu código
+GET http://localhost:3000/disciplines/ADM203/details
+Content-Type: application/json
+
+###
+// Busca a lista de disciplinas de determinado departamento
+GET http://localhost:3000/disciplines/departments?dept=Filosofia
+Content-Type: application/json
