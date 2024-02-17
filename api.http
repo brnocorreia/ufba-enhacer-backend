@@ -26,3 +26,36 @@ Content-Type: application/json
 // Busca a lista de disciplinas com determinado nome
 GET http://localhost:3000/disciplines?name=arquitetura
 Content-Type: application/json
+
+###
+// Criar um curso
+POST http://localhost:3000/courses
+Content-Type: application/json
+
+{
+  "code": 310120,
+  "name": "HISTÓRIA",
+  "shift": "Diurno",
+  "min_duration": 7,
+  "max_duration": 14,
+  "legal_base": "AUTORIZAÇÃO: DECRETO Nº 10664 DE 20.10.1942. RECONHECIMENTO: DECRETO Nº 17206 PUBLICADO NO DOU EM 21.11.1944. DIRETRIZES CURRICULARES RESOLUÇÃO CNE/CES Nº 13 DE 13.03.2002.",
+  "description": "Ao historiador compete o estudo das sociedades humanas, sua organização e mudança. O profissional da História busca nao apenas preencher pela pesquisa as lacunas na informação básica sobre as sociedades humanas, como também encontrar explicações generalizadas para os grandes processos de transformação histórica. Ao licenciado em História compete ensinar os Cursos de 1º e 2º graus.",
+  "ob_workload": 2370,
+  "op_workload": 465,
+  "ac_workload": 365
+}
+
+###
+// Retorna todos os cursos
+GET http://localhost:3000/courses/all
+Content-Type: application/json
+
+###
+// Retorna os cursos de acordo com o nome pesquisado
+GET http://localhost:3000/courses?name=história
+Content-Type: application/json
+
+###
+// Buscar um curso de acordo com seu código
+GET http://localhost:3000/courses/187140/details
+Content-Type: application/json
