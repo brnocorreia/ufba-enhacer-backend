@@ -20,7 +20,6 @@ export class CoursesService {
       return response;
     } catch (e) {
       if (e instanceof Prisma.PrismaClientKnownRequestError) {
-        console.log('Entrou');
         if (e.code === 'P2002') {
           throw new UniqueCourseViolation(course.name); // Mudar erro
         }

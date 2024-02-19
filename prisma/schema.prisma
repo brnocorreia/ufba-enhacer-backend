@@ -44,9 +44,11 @@ model User {
   last_name  String
   username   String   @unique
   email      String   @unique
+  password   String
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   status     Status   @default(DEACTIVATED)
+  isAdmin    Boolean  @default(false)
 }
 
 enum Status {

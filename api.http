@@ -59,3 +59,15 @@ Content-Type: application/json
 // Buscar um curso de acordo com seu código
 GET http://localhost:3000/courses/187140/details
 Content-Type: application/json
+
+###
+POST http://localhost:3000/users/new
+Content-Type: application/json
+
+{
+  "first_name": "Fernando",
+  "last_name": "Alonso",
+  "username": "don_fernando",
+  "email": "fernandalonso@gmail.com",
+  "password": "ferrari"
+}

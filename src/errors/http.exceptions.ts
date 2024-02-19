@@ -41,3 +41,21 @@ export class CourseNotFound extends HttpException {
     );
   }
 }
+
+export class UniqueUserViolation extends HttpException {
+  constructor() {
+    super(
+      `User already registered. Try a different email or username`,
+      HttpStatus.BAD_REQUEST,
+    );
+  }
+}
+
+export class UserNotFound extends HttpException {
+  constructor(key: string, value: string) {
+    super(
+      `Unable to find a user with ${key}: ${value}. Try a different one.`,
+      HttpStatus.NOT_FOUND,
+    );
+  }
+}
