@@ -39,12 +39,20 @@ model Discipline {
 }
 
 model User {
-  id         String    @id @default(uuid())
-  created_at DateTime? @default(now()) @db.Timestamptz(6)
-  updated_at DateTime? @default(now()) @db.Timestamptz(6)
-  deleted_at DateTime? @db.Timestamptz(6)
-  name       String?
-  email      String?   @unique(map: "idx_users_email")
+  id         String   @id @default(uuid())
+  first_name String
+  last_name  String
+  username   String   @unique
+  email      String   @unique
+  password   String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  status     Status   @default(DEACTIVATED)
+  isAdmin    Boolean  @default(false)
+}
 
-  @@index([deleted_at], map: "idx_users_deleted_at")
+enum Status {
+  ACTIVATED
+  DEACTIVATED
+  DISABLED
 }
